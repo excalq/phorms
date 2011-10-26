@@ -1,4 +1,27 @@
 # Changes in this branch
+
+## Excalq's changes
+ __Important:__ These changes were made in Feb-April 2011. These issues may have been fixed in other forks since then...
+
+### Functional Changes:
+1. Added the ability to generate a set of form fields USING DIVS instead of tables!!! Yippie!
+2. Added a "Description" field type, which generates user content wrapped in a span of class "phorm\_descr" among a set of form fields.
+3. Added Description text option for prepending directly to individual form fields. This is printed ahead of the field HTML. 
+4. Added features for muti-field text fields, where foo[] is used in the name= attibute. Used for generating a PHP array out of a set of fields.
+5. Bugfix: Checkboxes/Radios are validated with the "checked" instead of "value" attribute
+	Bugfix in FileUpload::get_file() for call to Phorm_Type_File
+6. Validation now handles a default of "-- select --" value in select menus (is considered a non-selection).
+### Big Checkbox/Radio Button Improvements:
+7. Added checkbox validation. Note that Phorm_Field_MultipleChoice can't handle checkboxes/radio validation - Instead use the 'required" option for those, as the app enforces a choice made for a muti-choice group of checkboxes/radios. This fixed a bug where Phorm_Field_MultipleChoice couldn't gracefully handle this condition, it now exempts itself gracefully.
+8. Refactored Phorm_Widget_OptionGroup::serialize() to repopulate checkbox/radio values on page reloads (such as during error validation)
+Phorm_Field_MultipleChoice was not gracefully handling checkboxes/radio validaiton. Note that validation for this assumes an array of choices - this only works for select menus. 'Required' still enforces a choice made for a muti-choice group of checkboxes/radios.
+
+... I think that's it, this needs more review, and to be merged with more modern versions of jordanlev/phorms.
+
+---------------------------------------
+## More changes from jordanlev
+(TODO: Get these from jordanlev/phorms)
+
 ## petsagouris's changes
 ### Functional Changes:
 * Removed client side validation to keep this library focused on PHP (not javascript)
